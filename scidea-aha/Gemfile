@@ -6,7 +6,7 @@ gem 'rspec'
 gem 'page-object'
 
 # Data and dependencies
-gem 'activerecord'
+gem 'activerecord', '3.2.12'
 gem 'factory_girl'
 gem 'database_cleaner'
 #gem 'sqlite3'
