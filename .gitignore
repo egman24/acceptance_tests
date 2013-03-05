@@ -19,3 +19,6 @@ doc/
 
 # Text Editor config
 .idea/
+
+# System logs
+chromedriver.log
