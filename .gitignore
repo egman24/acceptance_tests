@@ -22,3 +22,6 @@ doc/
 
 # System logs
 chromedriver.log
+
+# Secure information
+scidea-aha/features/support/database_config.rb
