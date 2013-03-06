@@ -7,17 +7,18 @@ Scenario: Registration via homepage login widget
   Given I am at onlineaha.org
   #Given/And I am a guest user
   When I click to Sign Up
-  And I enter "test@scitentQA.com" in the user email field
-  And I enter "password" in the user password field
-  And I enter "password" in the user password confirmation field
-  And I enter "First_Name" in the user profile first name field
-  And I enter "Last_Name" in the user profile last name field
-  And I select "Dr." from the salutation dropdown
-  And I enter "01/01/1950" in the birthdate field
+  And I enter an email in the user email field
+  And I enter a password in the user password field
+  And I enter the same password in the user password confirmation field
+  And I enter a first name in the user profile first name field
+  And I enter a last name in the user profile last name field
+  And I select a value from the salutation dropdown
+  And I enter a date in the birthdate field
   And I click to Register
   And I accept Terms and Conditions
   And I click to Submit
   Then I should see that I am logged in
+  And I should be greeted with a flash message
   And I should be a logged in as a learner
 
 # Scenario: Registration via homepage sign_up button
@@ -45,6 +46,8 @@ Scenario: Registration via homepage login widget
 # Scenario: test client side validations
 
 # Scenario: test server side validations (be sure flash messages are appearing visually as they should, pull text from translation config in app?)
+
+# Test flash messages at different resolutions/screensizes... have screenshots
 
 # Scenario: input limit stress testing for each field type
 
