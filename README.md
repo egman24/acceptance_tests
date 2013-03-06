@@ -2,6 +2,8 @@ acceptance_tests
 ================
 
 #### Ideas
+* fork the faker gem and add scidea specific fake data and namespaces -- this will be tailored to the project, add healthcare, elearning specific jargon, course work etc, AND have boundary testing namespace with elizabeth hendrickson's heuristics randomized
+* think of clever way to make it so any account can try any test -- and it should pass/fail depending on permissions and show proper assertion of behavior
 * use guard and 'hidden' vm to keep running tests in the background during changes for immediate feedback (on second monitor, using capistrano to run elsewhere or distributed suite commands like spork or bonjour)
   * one window text editor, one window application with dev tools, another window test run feedback and logs
 * Add faker so that different input can be used each time
