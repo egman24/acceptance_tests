@@ -2,6 +2,7 @@ Feature: User Registration
   As a guest user
   I want to register an account
   So that I may access the application as a learner
+  CONCERN: User Management
 
 Scenario: Registration via homepage login widget
   Given I am at onlineaha.org

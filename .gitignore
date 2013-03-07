@@ -25,3 +25,8 @@ chromedriver.log
 
 # Secure information
 scidea-aha/features/support/database_config.rb
+
+# Reports and artifacts
+scidea-aha/features/report.html
+scidea-aha/features/screenshots/*
+

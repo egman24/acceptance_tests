@@ -2,6 +2,7 @@ Given(/^I am logged in as the Scitent Admin$/) do
   @browser.text_field(:id => "user_email").set("sa.phx@scitent.com")
   @browser.text_field(:id => "user_password").set("password")
   @browser.button(:name => "commit").click
+  # add conditional logic to handle terms and conditions when the db was reset it is in the path
 end
 
 When(/^I click Pages in the Site menu of the primary admin navigation$/) do
