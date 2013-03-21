@@ -6,7 +6,9 @@ gem 'rspec'
 gem 'page-object'
 
 # Data and dependencies
-gem 'activerecord'
+gem 'activerecord', '3.2.12'
+gem 'activerecord-mysql2-adapter'
 gem 'factory_girl'
 gem 'database_cleaner'
+gem 'faker'
 #gem 'sqlite3'

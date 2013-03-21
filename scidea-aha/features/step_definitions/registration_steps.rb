@@ -6,33 +6,35 @@ When(/^I click to Sign Up$/) do
   @browser.link(:href => "#{@website}/users/sign_up").click
 end
 
-When(/^I enter "(.*?)" in the user email field$/) do |name|
-  @browser.text_field(:id => "user_email").set(name)
+When(/^I enter an email in the user email field$/) do
+  @browser.text_field(:id => "user_email").set(Faker::Internet.email)      #at some point faker may fail duplicates in db?)
 end
 
-When(/^I enter "(.*?)" in the user password field$/) do |password|
-  @browser.text_field(:id => "user_password").set(password)
+When(/^I enter a password in the user password field$/) do
+  @password = "password"
+  @browser.text_field(:id => "user_password").set(@password)
 end
 
-When(/^I enter "(.*?)" in the user password confirmation field$/) do |password_confirmation|
-  @browser.text_field(:id => "user_password_confirmation").set(password_confirmation)
+When(/^I enter the same password in the user password confirmation field$/) do
+  @browser.text_field(:id => "user_password_confirmation").set(@password)
 end
 
-When(/^I enter "(.*?)" in the user profile first name field$/) do |first_name|
-  @browser.text_field(:id => "user_profile_attributes_first_name").set(first_name)
+When(/^I enter a first name in the user profile first name field$/) do
+  @browser.text_field(:id => "user_profile_attributes_first_name").set(Faker::Name.first_name)
 end
 
-When(/^I enter "(.*?)" in the user profile last name field$/) do |last_name|
-  @browser.text_field(:id => "user_profile_attributes_last_name").set(last_name)
+When(/^I enter a last name in the user profile last name field$/) do
+  @browser.text_field(:id => "user_profile_attributes_last_name").set(Faker::Name.last_name)
 end
 
-When(/^I select "(.*?)" from the salutation dropdown$/) do |salutation|
+When(/^I select a value from the salutation dropdown$/) do
+  @salutation = %w(Dr. Mrs. Mr. Ms.)
   @browser.select_list(:id => "user_profile_attributes_custom_profile_attributes\
-_form_response_values_attributes_0_value").select(salutation)
+_form_response_values_attributes_0_value").select(@salutation.sample)
 end
 
-When(/^I enter "(.*?)" in the birthdate field$/) do |birthdate|
-  @browser.text_field(:placeholder => "mm/dd/yyyy").set(birthdate)
+When(/^I enter a date in the birthdate field$/) do
+  @browser.text_field(:placeholder => "mm/dd/yyyy").set(Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date)
 end
 
 When(/^I click to Register$/) do
