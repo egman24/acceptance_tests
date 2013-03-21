@@ -4,20 +4,18 @@ Feature: User Registration
   So that I may access the application as a learner
   CONCERN: User Management
 
-Scenario: Registration via homepage login widget
-  Given I am at onlineaha.org
+Scenario: Domestic Registration via Home Page login widget
   #Given/And I am a guest user
-  When I click to Sign Up
-  And I enter an email in the user email field
-  And I enter a password in the user password field
-  And I enter the same password in the user password confirmation field
-  And I enter a first name in the user profile first name field
-  And I enter a last name in the user profile last name field
-  And I select a value from the salutation dropdown
-  And I enter a date in the birthdate field
-  And I click to Register
-  And I accept Terms and Conditions
-  And I click to Submit
+  When I click to Sign Up on the Home Page
+  And I fill out the registration form as a Domestic user
+  Then I should see that I am logged in
+  And I should be greeted with a flash message
+  And I should be a logged in as a learner
+
+Scenario: International Registration via Home Page login widget
+  #Given/And I am a guest user
+  When I click to Sign Up on the Home Page
+  And I fill out the registration form as an International user
   Then I should see that I am logged in
   And I should be greeted with a flash message
   And I should be a logged in as a learner
@@ -68,3 +66,5 @@ Scenario: Registration via homepage login widget
 # Scenario: test different methods of traversing fields -- click into each, use tab to move...etc...
 
 # HOW can i test page timeouts, if post still occurs but validation is stale: https://gist.github.com/egman24/217b70244c8ee14dea91
+
+# user attempts to register but is already in the database, has already registered
