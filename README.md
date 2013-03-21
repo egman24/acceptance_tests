@@ -1,6 +1,8 @@
 acceptance_tests
 ================
 
+*Now that everything is object based and modular, i can choose to switch out the implementations: create in real time or use factories or 'magic' processes*
+
 #### Ideas
 * fork the faker gem and add scidea specific fake data and namespaces -- this will be tailored to the project, add healthcare, elearning specific jargon, course work etc, AND have boundary testing namespace with elizabeth hendrickson's heuristics randomized
 * think of clever way to make it so any account can try any test -- and it should pass/fail depending on permissions and show proper assertion of behavior
