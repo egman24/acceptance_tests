@@ -27,6 +27,8 @@ chromedriver.log
 scidea-aha/features/support/database_config.rb
 
 # Reports and artifacts
-scidea-aha/features/report.html
+scidea-aha/reports
 scidea-aha/features/screenshots/*
+scidea-aha/screenshots_archive/
+scidea-aha/viewcumber/
 

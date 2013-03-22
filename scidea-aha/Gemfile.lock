@@ -1,6 +1,9 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    actionmailer (0.6.1)
+      actionpack (>= 0.9.5)
+    actionpack (1.4.0)
     activemodel (3.2.12)
       activesupport (= 3.2.12)
       builder (~> 3.0.0)
@@ -16,6 +19,13 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    capybara (2.0.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     cucumber (1.2.2)
@@ -35,16 +45,35 @@ GEM
     ffi (1.4.0)
     gherkin (2.11.6)
       json (>= 1.7.6)
+    git (1.2.5)
     i18n (0.6.4)
+    jeweler (1.8.4)
+      bundler (~> 1.0)
+      git (>= 1.2.5)
+      rake
+      rdoc
     json (1.7.7)
+    mime-types (1.21)
     multi_json (1.6.1)
     mysql2 (0.3.11)
+    nokogiri (1.5.9)
     page-object (0.8.6.1)
       page_navigation (>= 0.7)
       selenium-webdriver (>= 2.31.0)
       watir-webdriver (>= 0.6.2)
     page_navigation (0.7)
       data_magic (>= 0.14)
+    rack (1.5.2)
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rails (0.9.5)
+      actionmailer (>= 0.6.1)
+      actionpack (>= 1.4.0)
+      activerecord (>= 1.6.0)
+      rake (>= 0.4.15)
+    rake (10.0.3)
+    rdoc (4.0.0)
+      json (~> 1.4)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -60,9 +89,16 @@ GEM
       rubyzip
       websocket (~> 1.0.4)
     tzinfo (0.3.36)
+    viewcumber (0.3.1)
+      capybara (>= 0.3)
+      cucumber (>= 1.1.4)
+      jeweler
+      viewcumber
     watir-webdriver (0.6.2)
       selenium-webdriver (>= 2.18.0)
     websocket (1.0.7)
+    xpath (1.0.0)
+      nokogiri (~> 1.3)
     yml_reader (0.2)
 
 PLATFORMS
@@ -76,4 +112,6 @@ DEPENDENCIES
   factory_girl
   faker
   page-object
+  rails
   rspec
+  viewcumber
