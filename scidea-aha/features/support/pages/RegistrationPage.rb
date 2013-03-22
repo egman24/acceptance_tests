@@ -15,12 +15,12 @@ class RegistrationPage
   end
 
   def domestic_registration
-    @user = User.new(ApplicationConfig::DOMESTIC_COUNTRIES)
+    @user = User.new(Application::DOMESTIC_COUNTRIES)
     fill_out_form
   end
 
   def international_registration
-    @user = User.new(ApplicationConfig::INTERNATIONAL_COUNTRIES)
+    @user = User.new(Application::INTERNATIONAL_COUNTRIES)
     fill_out_form
   end
 
@@ -82,7 +82,7 @@ class RegistrationPage
   end
 
   def click_signup
-    @browser.link(:href => "#{ApplicationConfig::WEBSITE}/users/sign_up").click
+    @browser.link(:href => "#{Application::WEBSITE}/users/sign_up").click
   end
 
   def click_to_register
@@ -114,7 +114,7 @@ class RegistrationPage
   end
 
   def navigate_to_home_page
-    @browser.goto ApplicationConfig::WEBSITE
+    @browser.goto Application::WEBSITE
   end
 
   def select_birthdate
