@@ -14,10 +14,10 @@ class RegistrationPage
   end
 
   def register(attributes={})
-    if /domestic/i.match(attributes[:country])
+    if attributes[:country] == :domestic
       fill_title   = 'Registration[Domestic]_fill_out_form'
       submit_title = 'Registration[Domestic]_submit_form'
-    else /international/i.match(attributes[:country])
+    else attributes[:country] == :international
       fill_title   = 'Registration[International]_fill_out_form'
       submit_title = 'Registration[International]_submit_form'
     end

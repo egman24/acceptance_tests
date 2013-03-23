@@ -7,10 +7,9 @@ class User
   attr_reader :birthdate, :country, :email, :first_name, :last_name, :password, :salutation
 
   def initialize(attributes={})
-
-    if /domestic/i.match(attributes[:country])
+    if attributes[:country] == :domestic
       @country = Application::COUNTRIES_DOMESTIC.sample
-    elsif /international/i.match(attributes[:country])
+    elsif attributes[:country] == :international
       @country = Application::COUNTRIES_INTERNATIONAL.sample
     else
       @country = Application::COUNTRIES_ALL.sample

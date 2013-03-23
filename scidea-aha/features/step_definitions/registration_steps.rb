@@ -1,7 +1,7 @@
 When(/^I fill out the registration form as a\(n\) "(.*?)" user$/) do |country|
   @registration = RegistrationPage.new(@browser)
   @registration.user = @user # TODO find way to roll this into the creation of the page... add 'user' value to the page object initialization (how can i crack it open and do that?)
-  @registration.register(:country => country)
+  @registration.register(:country => country.to_sym)
 end
 
 Then(/^I should see that I am logged in$/) do

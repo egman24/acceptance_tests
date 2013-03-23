@@ -6,9 +6,9 @@ Feature: User Registration
   CONCERN: User Management
 
 Scenario Outline: Registration via Home Page login widget
-  Given I am a(n) <domestic/international> guest user
+  Given I am a(n) "<domestic/international>" guest user
   When I click to Sign Up on the Home Page
-  And I fill out the registration form as a(n) <domestic/international> user
+  And I fill out the registration form as a(n) "<domestic/international>" user
   Then I should see that I am logged in
   And My account is learner type
   And I should be greeted with a flash message
@@ -16,8 +16,8 @@ Scenario Outline: Registration via Home Page login widget
 
   Examples:
   | domestic/international |
-  | "domestic"             |
-  | "international"        |
+  | domestic               |
+  | international          |
 
 # Scenario user (email) already exists and tries to register
 # **use the User.new().in_database to create user in database to check against

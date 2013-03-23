@@ -14,7 +14,7 @@ module Application
 
   COUNTRIES_DOMESTIC      = ['United States', 'Puerto Rico'] #pull in countries from the textfile 'new countries.txt' and traverse the structure to pull out what i need
   COUNTRIES_INTERNATIONAL = ['Aruba', 'Australia'] #pull in countries from the textfile 'new countries.txt' and traverse the structure to pull out what i need
-  COUNTRIES_ALL           = COUNTRIES_DOMESTIC.concat(COUNTRIES_INTERNATIONAL)
+  COUNTRIES_ALL           = COUNTRIES_DOMESTIC | COUNTRIES_INTERNATIONAL
   SALUTATIONS             = %w(Dr. Mrs. Mr. Ms.)
 
 end
