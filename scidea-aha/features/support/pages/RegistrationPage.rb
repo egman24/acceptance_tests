@@ -1,6 +1,8 @@
 class RegistrationPage
   include PageObject
 
+  attr_accessor :user
+
   def active_email_registration
     # use services like dispostable? (output the email addresses to check in test output?)
   end
@@ -12,19 +14,13 @@ class RegistrationPage
   end
 
   def domestic_registration
-    @user = User.new(Application::DOMESTIC_COUNTRIES)
     fill_out_form('Registration[Domestic]_fill_out_form')
     submit_form('Registration[Domestic]_submit_form')
   end
 
   def international_registration
-    @user = User.new(Application::INTERNATIONAL_COUNTRIES)
     fill_out_form('Registration[International]_fill_out_form')
     submit_form('Registration[International]_submit_form')
-  end
-
-  def navigate_to_page # find optimal way to test different ways to 'navigate to the page', ex, login box, top right, signinpage...   make these tests live in homepage object
-    HomePage.new(@browser).navigate_to_registration_page
   end
 
   private
@@ -60,7 +56,7 @@ class RegistrationPage
 
   def enter_birthdate
     #screen = "#{screenshot_path}_#{Time.now.strftime('%H%M%S%L%N')}_enter_birthdate.png"; @browser.screenshot.save screen
-    @browser.text_field(:placeholder => "mm/dd/yyyy").set(@user.birthdate)
+    @browser.text_field(:placeholder => "mm/dd/yyyy").set(user.birthdate)
     #screen = "#{screenshot_path}_#{Time.now.strftime('%H%M%S%L%N')}_enter_birthdate.png"; @browser.screenshot.save screen
   end
 
@@ -72,7 +68,7 @@ class RegistrationPage
   def select_salutation
     #screen = "#{screenshot_path}_#{Time.now.strftime('%H%M%S%L%N')}_select_salutation.png"; @browser.screenshot.save screen
     @browser.select_list(:id => "user_profile_attributes_custom_profile_attributes\
-_form_response_values_attributes_0_value").select(@user.salutation)
+_form_response_values_attributes_0_value").select(user.salutation)
     #screen = "#{screenshot_path}_#{Time.now.strftime('%H%M%S%L%N')}_select_salutation.png"; @browser.screenshot.save screen
   end
 
@@ -85,25 +81,25 @@ _form_response_values_attributes_0_value").select(@user.salutation)
     screenshot = Screenshot.new(@browser, title)
 
     screenshot.take('select_country')
-    self.select_country = @user.country
+    self.select_country               = user.country
     screenshot.take('select_country')
     screenshot.take('enter_email')
-    self.enter_email = @user.email
+    self.enter_email                  = user.email
     screenshot.take('enter_email')
     screenshot.take('enter_email_confirmation')
-    self.enter_email_confirmation = @user.email
+    self.enter_email_confirmation     = user.email
     screenshot.take('enter_email_confirmation')
     screenshot.take('enter_password')
-    self.enter_password = @user.password
+    self.enter_password               = user.password
     screenshot.take('enter_password')
     screenshot.take('enter_password_confirmation')
-    self.enter_password_confirmation = @user.password
+    self.enter_password_confirmation  = user.password
     screenshot.take('enter_password_confirmation')
     screenshot.take('enter_first_name')
-    self.enter_first_name = @user.first_name
+    self.enter_first_name             = user.first_name
     screenshot.take('enter_first_name')
     screenshot.take('enter_last_name')
-    self.enter_last_name = @user.last_name
+    self.enter_last_name              = user.last_name
     screenshot.take('enter_last_name')
     screenshot.take('accept_terms_and_conditions')
     self.check_accept_terms_and_conditions

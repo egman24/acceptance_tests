@@ -2,10 +2,11 @@ Feature: User Registration
   As a guest user
   I want to register an account
   So that I may access the application as a learner
+
   CONCERN: User Management
 
 Scenario: Domestic Registration via Home Page login widget
-  #Given/And I am a guest user
+  Given I am a domestic guest user
   When I click to Sign Up on the Home Page
   And I fill out the registration form as a Domestic user
   Then I should see that I am logged in
@@ -13,12 +14,21 @@ Scenario: Domestic Registration via Home Page login widget
   And I should be a logged in as a learner
 
 Scenario: International Registration via Home Page login widget
-  #Given/And I am a guest user
+  Given I am an international guest user
   When I click to Sign Up on the Home Page
   And I fill out the registration form as an International user
   Then I should see that I am logged in
   And I should be greeted with a flash message
   And I should be a logged in as a learner
+
+# Scenario user (email) already exists and tries to register
+# **use the User.new().in_database to create user in database to check against
+
+# Scenario length of entries
+# Given I am a guest user with a (password|name|etc..) over "x" characters (user table scenario to try different things?)
+
+# Scenario type of entries
+# enters (symbols, spaces, etc)
 
 # Scenario: Registration via homepage sign_up button
 
