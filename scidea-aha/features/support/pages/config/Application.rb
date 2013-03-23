@@ -1,8 +1,8 @@
-class Application
+module Application
 
   #General
 
-  WEBSITE = "http://0.0.0.0:3000" #@website = "http://qa.aha.scitent.com"
+  $WEBSITE = "http://0.0.0.0:3000" #@website = "http://qa.aha.scitent.com"
 
   #Screenshots
 

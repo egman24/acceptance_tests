@@ -1,7 +1,5 @@
-screenshot = Application::SESSION + "/registration_"
-
 When(/^I click to Sign Up on the Home Page$/) do
-  @registration = RegistrationPage.new(@browser, screenshot)
+  @registration = RegistrationPage.new(@browser)
   @registration.navigate_to_page
 end
 

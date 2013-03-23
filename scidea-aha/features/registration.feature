@@ -68,3 +68,5 @@ Scenario: International Registration via Home Page login widget
 # HOW can i test page timeouts, if post still occurs but validation is stale: https://gist.github.com/egman24/217b70244c8ee14dea91
 
 # user attempts to register but is already in the database, has already registered
+
+# can the system confirm and email was triggered and take a look at what it looks like?

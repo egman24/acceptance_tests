@@ -14,3 +14,5 @@ gem 'factory_girl'
 gem 'database_cleaner'
 gem 'faker'
 #gem 'sqlite3'
+
+gem 'pry'
