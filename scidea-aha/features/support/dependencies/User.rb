@@ -8,9 +8,9 @@ class User
 
   def initialize(attributes={})
 
-    if attributes[:country].match(/domestic/i)
+    if /domestic/i.match(attributes[:country])
       @country = Application::COUNTRIES_DOMESTIC.sample
-    elsif attributes[:country].match(/international/i)
+    elsif /international/i.match(attributes[:country])
       @country = Application::COUNTRIES_INTERNATIONAL.sample
     else
       @country = Application::COUNTRIES_ALL.sample

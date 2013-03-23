@@ -5,21 +5,19 @@ Feature: User Registration
 
   CONCERN: User Management
 
-Scenario: Domestic Registration via Home Page login widget
-  Given I am a domestic guest user
+Scenario Outline: Registration via Home Page login widget
+  Given I am a(n) <domestic/international> guest user
   When I click to Sign Up on the Home Page
-  And I fill out the registration form as a Domestic user
+  And I fill out the registration form as a(n) <domestic/international> user
   Then I should see that I am logged in
+  And My account is learner type
   And I should be greeted with a flash message
-  And I should be a logged in as a learner
+  # should see my county of origin or domestic/international in my user profile (test this elsewhere? or in this feature)
 
-Scenario: International Registration via Home Page login widget
-  Given I am an international guest user
-  When I click to Sign Up on the Home Page
-  And I fill out the registration form as an International user
-  Then I should see that I am logged in
-  And I should be greeted with a flash message
-  And I should be a logged in as a learner
+  Examples:
+  | domestic/international |
+  | "domestic"             |
+  | "international"        |
 
 # Scenario user (email) already exists and tries to register
 # **use the User.new().in_database to create user in database to check against

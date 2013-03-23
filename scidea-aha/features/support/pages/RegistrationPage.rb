@@ -13,14 +13,17 @@ class RegistrationPage
     end
   end
 
-  def domestic_registration
-    fill_out_form('Registration[Domestic]_fill_out_form')
-    submit_form('Registration[Domestic]_submit_form')
-  end
+  def register(attributes={})
+    if /domestic/i.match(attributes[:country])
+      fill_title   = 'Registration[Domestic]_fill_out_form'
+      submit_title = 'Registration[Domestic]_submit_form'
+    else /international/i.match(attributes[:country])
+      fill_title   = 'Registration[International]_fill_out_form'
+      submit_title = 'Registration[International]_submit_form'
+    end
 
-  def international_registration
-    fill_out_form('Registration[International]_fill_out_form')
-    submit_form('Registration[International]_submit_form')
+    fill_out_form(fill_title)
+    submit_form(submit_title)
   end
 
   private
