@@ -13,11 +13,11 @@ class RegistrationPage
     end
   end
 
-  def register(attributes={})
-    if attributes[:country] == :domestic
+  def register
+    if user.country_locale == :domestic
       fill_title   = 'Registration[Domestic]_fill_out_form'
       submit_title = 'Registration[Domestic]_submit_form'
-    else attributes[:country] == :international
+    else user.country_locale == :international
       fill_title   = 'Registration[International]_fill_out_form'
       submit_title = 'Registration[International]_submit_form'
     end

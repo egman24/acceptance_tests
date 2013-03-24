@@ -6,12 +6,15 @@ Feature: User Registration
   CONCERN: User Management
 
 Scenario Outline: Registration via Home Page login widget
-  Given I am a(n) "<domestic/international>" guest user
+  Given I am a(n) <domestic/international> guest user
   When I click to Sign Up on the Home Page
-  And I fill out the registration form as a(n) "<domestic/international>" user
+  And I fill out the registration form
   Then I should see that I am logged in
-  And My account is learner type
+  And I should be on the "/courses" page
   And I should be greeted with a flash message
+  And My account should be learner type
+  And I should have a(n) "<domestic/international>" profile
+
   # should see my county of origin or domestic/international in my user profile (test this elsewhere? or in this feature)
 
   Examples:
