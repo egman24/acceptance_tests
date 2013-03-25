@@ -13,23 +13,91 @@ Scenario Outline: Registration via Home Page login widget
   And I should be on the "/courses" page
   And I should be greeted with a flash message
   And My account should be learner type
-  And I should have a(n) "<domestic/international>" profile
-
-  # should see my county of origin or domestic/international in my user profile (test this elsewhere? or in this feature)
+  And I should have a(n) <domestic/international> profile
 
   Examples:
   | domestic/international |
   | domestic               |
   | international          |
 
+Scenario: Registration Form | Input Bounds: Submit with nothing filled in
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+  Scenario: Registration Form | Input Bounds: Fill everything but single field (combinatorial each field)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+  Scenario: Registration Form | Input Bounds: Fill only one field (combinatorial each field)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email does not match (different emails, different case)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password does not match (different emails, different case)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Any text fields -- sql injection (enter js, mysql, sql, ruby eval, etc... destructive code)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+
 # Scenario user (email) already exists and tries to register
 # **use the User.new().in_database to create user in database to check against
 
 # Scenario length of entries
 # Given I am a guest user with a (password|name|etc..) over "x" characters (user table scenario to try different things?)
-
-# Scenario type of entries
-# enters (symbols, spaces, etc)
 
 # Scenario: Registration via homepage sign_up button
 
@@ -39,31 +107,15 @@ Scenario Outline: Registration via Home Page login widget
 
 # TEST in full: terms and conditions in another scenario?
 
-# TEST in full: editing registration form (custom forms) in another scenario
-
 # Scenario: x number of registrations (sequential)
 
 # Scenario: x number of registrations (concurrent)
-
-# Scenario: password mismatch
-
-# Scenario: submit blank form
-
-# Scenario: combinatorial --> submit form with only one field (try each)
-
-# Scenario: required fields testing (all fields correct is already done: try only optional, only required, and mix)
 
 # Scenario: test client side validations
 
 # Scenario: test server side validations (be sure flash messages are appearing visually as they should, pull text from translation config in app?)
 
 # Test flash messages at different resolutions/screensizes... have screenshots
-
-# Scenario: input limit stress testing for each field type
-
-# Scenario: birthdate field (manual entry)
-
-# Scenario: birthdate field (js calendar entry: use clicks and datepicker td element)
 
 # Scenario: confirm all the data entered [example boolean choices etc..] is actually in my profile (overlap with user edit/profile testing)
 
@@ -77,7 +129,5 @@ Scenario Outline: Registration via Home Page login widget
 # Scenario: test different methods of traversing fields -- click into each, use tab to move...etc...
 
 # HOW can i test page timeouts, if post still occurs but validation is stale: https://gist.github.com/egman24/217b70244c8ee14dea91
-
-# user attempts to register but is already in the database, has already registered
 
 # can the system confirm and email was triggered and take a look at what it looks like?

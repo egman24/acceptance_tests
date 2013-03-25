@@ -15,5 +15,6 @@ gem 'database_cleaner'
 gem 'faker'
 #gem 'sqlite3'
 
+# Debugging
 gem 'pry'
 gem 'pry-debugger'
