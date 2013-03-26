@@ -1,4 +1,4 @@
 acceptance_tests
 ================
 
-A PageObject oriented test suite for Scidea applications.
+A Feature/Dependency/Page object oriented test suite for Scidea applications. 

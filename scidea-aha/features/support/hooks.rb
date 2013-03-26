@@ -1,28 +1,30 @@
 require 'watir-webdriver'
 
 Before do
-  @browser = Watir::Browser.new :chrome
-  #@website = "http://qa.aha.scitent.com"
-  @website = "http://0.0.0.0:3000"
-
-  directory = File.expand_path("./screenshots")
-  @session = "#{directory}/#{Time.now.strftime('%Y-%m-%d_%H%M%S')}"
+  @browser = Watir::Browser.new $BROWSER
 
   Dir::mkdir("screenshots") if not File.directory?("screenshots")
-  Dir::mkdir(@session) if not File.directory?(@session)
+  Dir::mkdir("screenshots_archive") if not File.directory?("screenshots_archive")
 end
 
 
 After do
   @browser.close
+end
 
-  `cp report.rhtml #{@session}/report.rhtml`
-  `cp main.css #{@session}/main.css`
+at_exit do
+  puts "==> Visit report.html @ file:"
 
-  raw_report  = "#{@session}/report.rhtml"
-  html_report = "#{@session}/report.html"
+  @new_file = "screenshots_archive/#{Time.now.strftime('%Y-%m-%d_%H%M%S')}"
+  Dir::mkdir(@new_file) if not File.directory?(@new_file)
 
-  `cd #{@session} && ruby #{raw_report} >> #{html_report}`
+  Dir.glob('screenshots/**/*.png') do |screen|
+    original_file = File.absolute_path screen
 
-  puts "==> Visit report.html @ file://#{@session}/report.html"
+    FileUtils.mv(original_file, "#{@new_file}/#{File.basename screen}")
+  end
+
+  FileUtils.cp("jquery.js", "#{@new_file}")	
+  Report.generate(@new_file)
+
 end

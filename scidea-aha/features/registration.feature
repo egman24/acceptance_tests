@@ -2,25 +2,106 @@ Feature: User Registration
   As a guest user
   I want to register an account
   So that I may access the application as a learner
+
   CONCERN: User Management
 
-Scenario: Registration via homepage login widget
-  Given I am at onlineaha.org
-  #Given/And I am a guest user
-  When I click to Sign Up
-  And I enter an email in the user email field
-  And I enter a password in the user password field
-  And I enter the same password in the user password confirmation field
-  And I enter a first name in the user profile first name field
-  And I enter a last name in the user profile last name field
-  And I select a value from the salutation dropdown
-  And I enter a date in the birthdate field
-  And I click to Register
-  And I accept Terms and Conditions
-  And I click to Submit
+Scenario Outline: Registration via Home Page login widget
+  Given I am a(n) <domestic/international> guest user
+  When I click to Sign Up on the Home Page
+  And I fill out the registration form
   Then I should see that I am logged in
+  And I should be on the "/courses" page
   And I should be greeted with a flash message
-  And I should be a logged in as a learner
+  And My account should be learner type
+  And I should have a(n) <domestic/international> profile
+  And I should have received a welcome email
+
+  Examples:
+  | domestic/international |
+  | domestic               |
+  | international          |
+
+Scenario: Registration Form | Input Bounds: Submit with nothing filled in
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
+
+  Scenario: Registration Form | Input Bounds: Fill everything but single field (combinatorial each field)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
+
+  Scenario: Registration Form | Input Bounds: Fill only one field (combinatorial each field)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
+
+Scenario: Registration Form | Input Bounds: Email incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Email does not match (different emails, different case)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Password does not match (different emails, different case)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: First name too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name incorrect format (white space entry, different character entries)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name too long
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Last name too short
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+Scenario: Registration Form | Input Bounds: Any text fields -- sql injection (enter js, mysql, sql, ruby eval, etc... destructive code)
+  Given I am a guest user
+  When I click to Sign Up on the Home Page
+
+
+# Scenario user (email) already exists and tries to register
+# **use the User.new().in_database to create user in database to check against
+
+# Scenario length of entries
+# Given I am a guest user with a (password|name|etc..) over "x" characters (user table scenario to try different things?)
 
 # Scenario: Registration via homepage sign_up button
 
@@ -30,31 +111,15 @@ Scenario: Registration via homepage login widget
 
 # TEST in full: terms and conditions in another scenario?
 
-# TEST in full: editing registration form (custom forms) in another scenario
-
 # Scenario: x number of registrations (sequential)
 
 # Scenario: x number of registrations (concurrent)
-
-# Scenario: password mismatch
-
-# Scenario: submit blank form
-
-# Scenario: combinatorial --> submit form with only one field (try each)
-
-# Scenario: required fields testing (all fields correct is already done: try only optional, only required, and mix)
 
 # Scenario: test client side validations
 
 # Scenario: test server side validations (be sure flash messages are appearing visually as they should, pull text from translation config in app?)
 
 # Test flash messages at different resolutions/screensizes... have screenshots
-
-# Scenario: input limit stress testing for each field type
-
-# Scenario: birthdate field (manual entry)
-
-# Scenario: birthdate field (js calendar entry: use clicks and datepicker td element)
 
 # Scenario: confirm all the data entered [example boolean choices etc..] is actually in my profile (overlap with user edit/profile testing)
 
@@ -68,3 +133,5 @@ Scenario: Registration via homepage login widget
 # Scenario: test different methods of traversing fields -- click into each, use tab to move...etc...
 
 # HOW can i test page timeouts, if post still occurs but validation is stale: https://gist.github.com/egman24/217b70244c8ee14dea91
+
+# can the system confirm and email was triggered and take a look at what it looks like?

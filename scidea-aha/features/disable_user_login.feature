@@ -3,6 +3,7 @@ Feature: Disable User Login
   I want to flag user accounts 'Disabled'
   I want to trigger an email sent out to alert user that they no longer have access to the site
   So that I may restrict user access to the site
+
   CONCERN: User Management
 
 Scenario: Disable User Login

@@ -4,6 +4,8 @@ source 'http://rubygems.org'
 gem 'cucumber'
 gem 'rspec'
 gem 'page-object'
+gem 'viewcumber'
+gem 'rails'
 
 # Data and dependencies
 gem 'activerecord', '3.2.12'
@@ -12,3 +14,7 @@ gem 'factory_girl'
 gem 'database_cleaner'
 gem 'faker'
 #gem 'sqlite3'
+
+# Debugging
+gem 'pry'
+gem 'pry-debugger'
