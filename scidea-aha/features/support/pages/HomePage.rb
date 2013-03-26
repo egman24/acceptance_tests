@@ -11,9 +11,9 @@ class HomePage
 
     screenshot = Screenshot.new(@browser, title)
 
-    screenshot.take('navigate_to_home_page')
+    screenshot.captures('navigate_to_home_page', 'Home Page: Navigate to Home Page (before)')
     @browser.goto HomePage.base_url
-    screenshot.take('navigate_to_home_page')
+    screenshot.captures('navigate_to_home_page', 'Home Page: Navigate to Home Page (after)')
   end
 
   def navigate_to_registration_page
@@ -21,9 +21,9 @@ class HomePage
     screenshot = Screenshot.new(@browser, 'Homepage_navigate_to_registration_page')
 
     navigate_to_page('Homepage_navigate_to_page')
-    screenshot.take('click_to_signup_via_login_widget')
+    screenshot.captures('click_to_signup_via_login_widget', 'Home Page: Click to Sign Up via Login Widget (before)')
     self.click_to_signup_via_login_widget
-    screenshot.take('click_to_signup_via_login_widget')
+    screenshot.captures('click_to_signup_via_login_widget', 'Home Page: Click to Sign Up via Login Widget (after)')
   end
 
   def test_external_links

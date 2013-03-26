@@ -20,9 +20,10 @@ at_exit do
 
   Dir.glob('screenshots/**/*.png') do |screen|
     original_file = File.absolute_path screen
-    FileUtils.mv(original_file, "#{@new_file}/#{File.basename screen}")
 
-    #embed screen, "image/png"
+    FileUtils.mv(original_file, "#{@new_file}/#{File.basename screen}")
   end
+
+  Report.generate(@new_file)
 
 end

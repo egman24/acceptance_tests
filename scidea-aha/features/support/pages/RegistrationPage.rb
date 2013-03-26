@@ -83,39 +83,39 @@ _form_response_values_attributes_0_value").select(user.salutation)
 
     screenshot = Screenshot.new(@browser, title)
 
-    screenshot.take('select_country')
+    screenshot.captures('select_country', 'Registration: Select Country (before)')
     self.select_country               = user.country
-    screenshot.take('select_country')
-    screenshot.take('enter_email')
+    screenshot.captures('select_country', 'Registration: Select Country (after)')
+    screenshot.captures('enter_email', 'Registration: Enter Email (before)')
     self.enter_email                  = user.email
-    screenshot.take('enter_email')
-    screenshot.take('enter_email_confirmation')
+    screenshot.captures('enter_email', 'Registration: Enter Email (after)')
+    screenshot.captures('enter_email_confirmation', 'Registration: Enter Email Confirmation (before)')
     self.enter_email_confirmation     = user.email
-    screenshot.take('enter_email_confirmation')
-    screenshot.take('enter_password')
+    screenshot.captures('enter_email_confirmation', 'Registration: Enter Email Confirmation (after)')
+    screenshot.captures('enter_password', 'Registration: Enter Password (before)')
     self.enter_password               = user.password
-    screenshot.take('enter_password')
-    screenshot.take('enter_password_confirmation')
+    screenshot.captures('enter_password', 'Registration: Enter Password (after)')
+    screenshot.captures('enter_password_confirmation', 'Registration: Enter Password Confirmation (before)')
     self.enter_password_confirmation  = user.password
-    screenshot.take('enter_password_confirmation')
-    screenshot.take('enter_first_name')
+    screenshot.captures('enter_password_confirmation', 'Registration: Enter Password Confirmation (after)')
+    screenshot.captures('enter_first_name', 'Registration: Enter First Name (before)')
     self.enter_first_name             = user.first_name
-    screenshot.take('enter_first_name')
-    screenshot.take('enter_last_name')
+    screenshot.captures('enter_first_name', 'Registration: Enter First Name (after)')
+    screenshot.captures('enter_last_name', 'Registration: Enter Last Name (before)')
     self.enter_last_name              = user.last_name
-    screenshot.take('enter_last_name')
-    screenshot.take('accept_terms_and_conditions')
+    screenshot.captures('enter_last_name', 'Registration: Enter Last Name (after)')
+    screenshot.captures('accept_terms_and_conditions', 'Registration: Accept Terms and Conditions (before)')
     self.check_accept_terms_and_conditions
-    screenshot.take('accept_terms_and_conditions')
+    screenshot.captures('accept_terms_and_conditions', 'Registration: Accept Terms and Conditions (after)')
   end
 
   def submit_form(title)
 
     screenshot = Screenshot.new(@browser, title)
 
-    screenshot.take('click_to_register')
+    screenshot.captures('click_to_register', 'Registration: Click to Register (before)')
     self.click_to_register
-    screenshot.take('click_to_register')
+    screenshot.captures('click_to_register', 'Registration: Click to Register (before)')
   end
 
 end
