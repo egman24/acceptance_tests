@@ -1,7 +1,7 @@
 require 'watir-webdriver'
 
 Before do
-  @browser = Watir::Browser.new :chrome
+  @browser = Watir::Browser.new $BROWSER
 
   Dir::mkdir("screenshots") if not File.directory?("screenshots")
   Dir::mkdir("screenshots_archive") if not File.directory?("screenshots_archive")

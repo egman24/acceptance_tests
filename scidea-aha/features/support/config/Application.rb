@@ -2,7 +2,8 @@ module Application
 
   #General
 
-  $WEBSITE = "http://0.0.0.0:3000" #@website = "http://qa.aha.scitent.com"
+  $WEBSITE = "http://0.0.0.0:3000" # "http://qa.aha.scitent.com"
+  $BROWSER = :chrome               # :firefox, :ie, :safari...
 
   #Screenshots
 
