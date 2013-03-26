@@ -14,6 +14,7 @@ Scenario Outline: Registration via Home Page login widget
   And I should be greeted with a flash message
   And My account should be learner type
   And I should have a(n) <domestic/international> profile
+  And I should have received a welcome email
 
   Examples:
   | domestic/international |
@@ -23,14 +24,17 @@ Scenario Outline: Registration via Home Page login widget
 Scenario: Registration Form | Input Bounds: Submit with nothing filled in
   Given I am a guest user
   When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
 
   Scenario: Registration Form | Input Bounds: Fill everything but single field (combinatorial each field)
   Given I am a guest user
   When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
 
   Scenario: Registration Form | Input Bounds: Fill only one field (combinatorial each field)
   Given I am a guest user
   When I click to Sign Up on the Home Page
+  # should not have recieved welcome email
 
 Scenario: Registration Form | Input Bounds: Email incorrect format (white space entry, different character entries)
   Given I am a guest user
