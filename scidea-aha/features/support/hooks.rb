@@ -24,6 +24,7 @@ at_exit do
     FileUtils.mv(original_file, "#{@new_file}/#{File.basename screen}")
   end
 
+  FileUtils.cp("jquery.js", "#{@new_file}")	
   Report.generate(@new_file)
 
 end
